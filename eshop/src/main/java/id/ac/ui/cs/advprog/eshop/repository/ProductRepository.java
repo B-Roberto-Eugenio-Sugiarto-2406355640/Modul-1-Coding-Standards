@@ -11,9 +11,30 @@ import java.util.List;
 public class ProductRepository {
     private List<Product> productData = new ArrayList<>();
 
+    public Product findById(String id) {
+        for(int i=0;i<productData.size();i++) {
+            Product currentProduct = productData.get(i);
+            if (currentProduct.getProductId().equals(id)) {
+                return currentProduct;
+            }
+        }
+        return null;
+    }
+
     public Product create(Product product) {
         productData.add(product);
         return product;
+    }
+
+    public Product edit(Product product) {
+        for(int i=0;i<productData.size();i++) {
+            Product currentProduct = productData.get(i);
+            if (currentProduct.getProductId().equals(product.getProductId())) {
+                productData.set(i, product);
+                return product;
+            }
+        }
+        return null;
     }
 
     public Iterator<Product> findAll() {

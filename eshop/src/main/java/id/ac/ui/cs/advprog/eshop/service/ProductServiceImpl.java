@@ -15,11 +15,21 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    public Product findById(String id) {
+        return productRepository.findById(id);
+    }
+
     @Override
     public Product create(Product product) {
         productRepository.create(product);
         return product;
     }
+
+    public Product edit(Product product) {
+        productRepository.edit(product);
+        return product;
+    }
+
 
     @Override
     public List<Product> findAll() {
