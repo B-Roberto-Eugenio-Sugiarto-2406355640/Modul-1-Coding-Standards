@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+<div class="card border-danger">
+    <div class="card-header bg-danger text-white">
+        <h3>Confirm Deletion</h3>
+    </div>
+    <div class="card-body">
+        <p>Are you sure you want to delete: <strong th:text="${product.productName}"></strong>?</p>
+        <div class="mt-4">
+            <a th:href="@{/product/delete/{id}(id=${product.productId})}" class="btn btn-danger">Yes, Delete</a>
+            <a th:href="@{/product/list}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
