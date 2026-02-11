@@ -30,6 +30,10 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
+    public Product delete(Product product) {
+        productRepository.delete(product);
+        return product;
+    }
 
     @Override
     public List<Product> findAll() {
